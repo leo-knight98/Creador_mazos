@@ -3,7 +3,7 @@
         <div class="col">
             <div class="card h-100">
                 <div class="card-body">
-                    <form method="post">
+                    <form method="POST">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre de usuario:</label>
                             <input type="text" name="nombre" id="nombre" class="form-control" placeholder="" aria-describedby="helpId">
