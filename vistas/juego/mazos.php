@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <div class="card">
     <div class="card-header">
         Mazos del usuario
@@ -17,6 +18,11 @@
                         <tr>
                             <td><?php echo $mazo['id']; ?></td>
                             <td><?php echo $mazo['nombre']; ?></td>
+                            <td>
+                                <a name="" id="" class="btn btn-success" href="#" role="button">Abrir</a>
+                                <a name="" id="" class="btn btn-info" href="#" role="button">Editar</a>
+                                <a name="" id="" class="btn btn-danger" href="#" role="button">Borrar</a>
+                            </td>
                         </tr>
                     <?php } ?>
                 </tbody>

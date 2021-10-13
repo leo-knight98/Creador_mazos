@@ -10,8 +10,9 @@ class Juego {
 
     public static function verMazos($usuario_id) {
         $connBD = BD::crearInstancia();
-        $stmt = $connBD->prepare("SELECT * FROM mazos WHERE usuario_id = ?");
-        $stmt->execute($usuario_id);
+        $stmt = $connBD->prepare("SELECT id, nombre FROM mazos_usuario WHERE usuario_id = :usuario_id");
+        $stmt->bindParam(':usuario_id', $usuario_id);
+        $stmt->execute();
         $listaMazos = $stmt->fetchAll();
         return $listaMazos;
     }

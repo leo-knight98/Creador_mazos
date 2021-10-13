@@ -23,7 +23,7 @@
 
         <form method="post">
           <label for="cantidad">Cantidad:</label>
-          <input type="number" name="cantidad" id="cantidad" max="4" /><br>
+          <input required type="number" name="cantidad" id="cantidad" max="4" /><br>
           <input type="submit" name="submit" id="submit" class="btn btn-success" value="Agregar al mazo"/>
         </form>
       </div>
