@@ -6,7 +6,6 @@ class Usuario {
         $stmt = $connBD->prepare("SELECT id, nombre, pass FROM usuarios WHERE nombre = :nombre AND pass = :pass");
         $stmt->bindParam(':nombre', $nombre);
         $stmt->bindParam(':pass', $pass);
-        var_dump($stmt);
         $stmt->execute();
         $usuario = $stmt->fetch();
         

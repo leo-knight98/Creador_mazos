@@ -26,7 +26,6 @@
           <input type="number" name="cantidad" id="cantidad" max="4" /><br>
           <input type="submit" name="submit" id="submit" class="btn btn-success" value="Agregar al mazo"/>
         </form>
-        <!-- <a name="mazo" id="mazo" class="btn btn-success" href="#" role="button">Añadir al mazo</a>-->
       </div>
     </div>
   </div>

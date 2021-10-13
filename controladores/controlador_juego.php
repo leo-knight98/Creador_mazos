@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("modelos/juego.php");
 class Controlador {
     public function __construct($accion) {
@@ -12,6 +13,8 @@ class Controlador {
     }
 
     public function mazos() {
+        $usuario = $_SESSION['id'];
+        $listaMazos = Juego::verMazos($usuario);
         include_once("vistas/juego/mazos.php");
     }
 }
