@@ -15,24 +15,18 @@ class Controlador {
             var_dump("dins 1r IF".$_POST);
             $nombre = $_POST['nombre'];
             $pass = $_POST['pass'];
-            $usuario = Usuario::login($nombre);
-            veureUser($usuario);
+            $usuario = Usuario::login($nombre, $pass);
+            //veureUser($usuario['nombre']);
+            var_dump($usuario);
+
             if(($usuario['nombre'] == $nombre) && ($usuario['pass'] == $pass)) {
                 $_SESSION['nombre'] = $_POST['nombre'];
                 $_SESSION['id'] = $usuario['id'];
                 echo "Correcto";
-                //header("Location: ./?controlador=usuario&accion=loggeado");
+                header("Location: ./?controlador=usuario&accion=loggeado");
             } else {
                 echo "Usuario o contraseña incorrectos";
             }
-
-            /*if(isset($usuario)) {
-                $_SESSION['nombre'] = $nombre;
-                $_SESSION['id'] = $usuario['id'];
-                header("Location: ./?controlador=juego&accion=cartas");
-            } else {
-                echo "Usuario o contraseña incorrectos";
-            }*/
             
         }
         
@@ -49,7 +43,7 @@ class Controlador {
         require_once("vistas/usuarios/loggeado.php");
     }
     public function veureUser($hola){
-        var_dump("usurai: ".$hola);
+        var_dump("usuari: ".$hola);
 
     }
 }

@@ -1,10 +1,11 @@
 <?php
+require_once("connexion.php");
 class Usuario {
-    public static function login($nombre) {
-        echo "eee";
+    public static function login($nombre, $pass) {
         $connBD = BD::crearInstancia();
-        $stmt = $connBD->prepare("SELECT id, nombre, pass FROM usuarios WHERE nombre = :nombre");
+        $stmt = $connBD->prepare("SELECT id, nombre, pass FROM usuarios WHERE nombre = :nombre AND pass = :pass");
         $stmt->bindParam(':nombre', $nombre);
+        $stmt->bindParam(':pass', $pass);
         var_dump($stmt);
         $stmt->execute();
         $usuario = $stmt->fetch();
