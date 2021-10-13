@@ -20,7 +20,13 @@
         <?php } else if ($carta['lealtad'] != NULL) { ?>
             <p style="text-align: right;"><?php echo $carta['lealtad'] ?></p>
         <?php } ?>
-        <a name="mazo" id="mazo" class="btn btn-success" href="#" role="button">Añadir al mazo</a>
+
+        <form method="post">
+          <label for="cantidad">Cantidad:</label>
+          <input type="number" name="cantidad" id="cantidad" max="4" /><br>
+          <input type="submit" name="submit" id="submit" class="btn btn-success" value="Agregar al mazo"/>
+        </form>
+        <!-- <a name="mazo" id="mazo" class="btn btn-success" href="#" role="button">Añadir al mazo</a>-->
       </div>
     </div>
   </div>

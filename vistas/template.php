@@ -17,6 +17,7 @@
         <a class="nav-link active" href="?controlador=juego&accion=cartas">Catálogo de cartas</a>
         
         <?php if($_SESSION['id'] != NULL) { ?>
+          <a class="nav-link" href="?controlador=juego&accion=mazos">Mis mazos</a>
           <a class="nav-link" href="?controlador=usuarios&accion=logout">Logout</a>
         <?php } else { ?>
           <a class="nav-link" href="?controlador=usuarios&accion=login">Login</a>

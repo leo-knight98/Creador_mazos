@@ -38,10 +38,10 @@ class Controlador {
         header("Location:./?controlador=juego&accion=cartas");
     }
 
-    public function loggeado() {
-        
+    public function loggeado() {   
         require_once("vistas/usuarios/loggeado.php");
     }
+
     public function veureUser($hola){
         var_dump("usuari: ".$hola);
 
