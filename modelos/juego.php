@@ -8,13 +8,14 @@ class Juego {
         return $listaCartas;
     }
 
-    public static function verMazos($usuario_id) {
+    public static function buscar_nombre($parametro, $valor) {
         $connBD = BD::crearInstancia();
-        $stmt = $connBD->prepare("SELECT id, nombre FROM mazos_usuario WHERE usuario_id = :usuario_id");
-        $stmt->bindParam(':usuario_id', $usuario_id);
+        $stmt = $connBD->prepare("SELECT * FROM cartas WHERE $parametro LIKE :valor");
+        $stmt->bindParam(':valor', $valor);
         $stmt->execute();
-        $listaMazos = $stmt->fetchAll();
-        return $listaMazos;
+        $cartasBuscadas = $stmt->fetchAll();
+        
+        return $cartasBuscadas;
     }
 }
 ?>

@@ -1,5 +1,7 @@
 <?php session_start() ?>
 <div class="container">
+  <h4 class="card-title">Lista de cartas</h4>
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <?php foreach($listaCartas as $carta) { ?>
     <div class="col">
@@ -20,12 +22,6 @@
         <?php } else if ($carta['lealtad'] != NULL) { ?>
             <p style="text-align: right;"><?php echo $carta['lealtad'] ?></p>
         <?php } ?>
-
-        <form method="post">
-          <label for="cantidad">Cantidad:</label>
-          <input required type="number" name="cantidad" id="cantidad" max="4" /><br>
-          <input type="submit" name="submit" id="submit" class="btn btn-success" value="Agregar al mazo"/>
-        </form>
       </div>
     </div>
   </div>
