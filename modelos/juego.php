@@ -70,8 +70,7 @@ class Juego {
 
     public static function ver_cartas_mazo($id_mazo) {
         $connBD = BD::crearInstancia();
-        $stmt = $connBD->prepare("SELECT mazos_cartas.id_carta, cartas.nombre, cartas.color, cartas.expansion, cartas.rareza, cartas.tipo, cartas.texto, cartas.coste 
-                                FROM mazos_cartas INNER JOIN mazos.cartas_id carta ON cartas.id WHERE mazos_cartas.id_mazo = :id_mazo");
+        $stmt = $connBD->prepare("SELECT * FROM mazos_cartas WHERE id_mazo = :id_mazo");
         $stmt->bindParam(':id_mazo', $id_mazo);
         $stmt->execute();
 

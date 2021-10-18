@@ -48,14 +48,14 @@ class Controlador {
         include_once("vistas/juego/crear_mazo.php");
     }
 
-    public function agregar_cartas() {
+    public function agregar_cartas() { 
         if($_SERVER['REQUEST_METHOD'] === "POST") {
             $nombre = "%".$_POST['carta']."%";
             $cartas = Juego::buscar_nombre($nombre);
         }
-
         $id_mazo = $_GET['id'];
         $cartas_mazo = Juego::ver_cartas_mazo($id_mazo);
+        print_r($cartas_mazo);
         include_once("vistas/juego/agregar_cartas.php");
     }
 
@@ -73,12 +73,12 @@ class Controlador {
 
     public function agregar_carta() {
         if($_SERVER['REQUEST_METHOD'] === "POST") {
-            $mazo = $_GET['id'];
+            $id_mazo = $_POST['mazo'];
             $carta = $_POST['carta'];
             $cantidad = $_POST['cantidad'];
     
-            Juego::agregar_carta($mazo, $carta, $cantidad);
-            header("Location./?controlador=juego&accion=agregar_cartas&id=$mazo");
+            Juego::agregar_carta($id_mazo, $carta, $cantidad);
+            header("Location./?controlador=juego&accion=agregar_cartas&id=$id_mazo");
         }
         
         

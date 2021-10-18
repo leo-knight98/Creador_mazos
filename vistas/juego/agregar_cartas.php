@@ -57,8 +57,9 @@
                                 <td><?php echo $carta['rareza'] ?></td>
                                 <td style="width: 600px;"><?php echo $carta['texto'] ?></td>
                                 <td>
-                                    <form method="post" action="?controlador=juego&accion=agregar_carta&id=<?php echo $_GET['id'] ?>">
+                                    <form method="post" action="?controlador=juego&accion=agregar_carta">
                                         <input hidden type="number" name="carta" value="<?php echo $carta['id'] ?>" />
+                                        <input hidden type="number" name="mazo" value="<?php echo $_GET['id'] ?>" />
                                         <?php if($carta['tipo'] == "Tierra básica") { ?>
                                             <input type="number" name="cantidad" id="cantidad" />
                                         <?php } else { ?>
@@ -85,27 +86,22 @@
                             <th>Expansión</th>
                             <th>Rareza</th>
                             <th style="width: 600px;">Texto</th>
+                            <th>Cantidad</th>
                             </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td scope="row"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                <td scope="row"></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
+                                <?php foreach($cartas_mazos as $carta) { ?>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                <?php } ?>
                             </tbody>
                     </table>
                     
