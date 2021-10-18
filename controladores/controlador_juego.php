@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("modelos/juego.php");
 class Controlador {
     public function __construct($accion) {
@@ -79,9 +78,16 @@ class Controlador {
     
             Juego::agregar_carta($id_mazo, $carta, $cantidad);
             header("Location./?controlador=juego&accion=agregar_cartas&id=$id_mazo");
-        }
-        
-        
+        }   
+    }
+
+    public function ver_mazo() {
+        $id_mazo = $_GET['id'];
+
+        $lista = Juego::ver_cartas_mazo($id_mazo);
+        print_r($lista);
+
+        require_once("vistas/juego/lista.php");
     }
     
 }

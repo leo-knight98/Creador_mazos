@@ -1,0 +1,13 @@
+.front {
+    height: 250px;
+    margin: 0 auto;
+}
+
+.flipped {
+    display: none;
+}
+
+.visible {
+    margin: 0 auto;
+    height: 250px;
+}

@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once("modelos/usuarios.php");
 
 class Controlador {
@@ -38,9 +37,5 @@ class Controlador {
         require_once("vistas/usuarios/loggeado.php");
     }
 
-    public function veureUser($hola){
-        var_dump("usuari: ".$hola);
-
-    }
 }
 ?>

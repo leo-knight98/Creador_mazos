@@ -1,28 +1,12 @@
-
 <div class="container">
-  <h4 class="card-title">Lista de cartas</h4>
-
-  <p>Ordenar por:</p>
-  <form method="post">
-    <input type="radio" name="orden" id="nombre" value="nombre"><label for="nombre">Nombre</label>
-    <input type="radio" name="orden" id="tipo" value="tipo"><label for="tipo">Tipo</label>
-    <input type="radio" name="orden" id="color" value="color"><label for="color">Color</label>
-    <input type="submit" class="btn btn-success" value="Enviar">
-</form>
+  <h4 class="card-title">Mi mazo</h4>
 <div class="row row-cols-1 row-cols-md-3 g-4">
-<?php foreach($listaCartas as $carta) { ?>
+<!-- <?php foreach($lista as $carta) { ?>
     <div class="col">
     <div class="card h-100" style="max-height: 670px; overflow: scroll;">
       <div class="card-header"><?php echo $carta['nombre'] ?></div>
       <div class="card-body">
-        <?php if($carta['img2'] != NULL) { ?>
-          <div id="front" class="visible" style="text-align: center;"><img class="front" src="<?php echo $carta['img'] ?>"></div>
-          <div id="back" class="flipped" style="text-align: center;"><img class="front" src="<?php echo $carta['img2'] ?>"></div><br>
-          <div style="text-align: center;"><button id="flip" style="margin: 5px auto;"><img src="vistas/img/swap.png" /></button></div>
-        
-        <?php } else if($carta['img2'] == NULL) { ?>
-          <div style="text-align: center;"><img class="front" id="img" src="<?php echo $carta['img'] ?>"></div>
-        <?php } ?>
+        <div style="text-align: center;"><img src="<?php echo $carta['img'] ?>" style="height: 200px;"></div>
         <p class="card-text" style="text-align: justify;"><?php echo $carta['texto'] ?></p>
         <ul>
             <li>Coste: <?php 
@@ -59,9 +43,7 @@
     </div>
   </div>
 <?php } ?>
-</div>
+</div> -->
 
 </div>
-
-<script src="vistas/js/juego.js"></script>
 <footer style="height: 150px;"></footer>

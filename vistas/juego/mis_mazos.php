@@ -16,7 +16,7 @@
                         <tr>
                             <td><?php echo $mazo['nombre'] ?>
                             <td>
-                                <a name="" id="" class="btn btn-success" href="#" role="button">Ver</a>
+                                <a name="" id="" class="btn btn-success" href="?controlador=juego&accion=ver_cartas&id=<?php echo $mazo['id'] ?>" role="button">Ver</a>
                                 <a name="" id="" class="btn btn-info" href="?controlador=juego&accion=agregar_cartas&id=<?php echo $mazo['id'] ?>" role="button">Editar</a>
                                 <a name="" id="" class="btn btn-danger" href="?controlador=juego&accion=borrar_mazo&id=<?php echo $mazo['id'] ?>" role="button">Borrar</a>
                             </td>

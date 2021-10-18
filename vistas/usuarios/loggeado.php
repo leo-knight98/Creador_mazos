@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+
 <div class="card">
     <div class="card-header">
         Login correcto
