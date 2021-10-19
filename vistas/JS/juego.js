@@ -1,19 +1,36 @@
-window.onload = function() {
-    let flip = document.getElementById("flip");
+var i_max = document.getElementsByClassName("card-body").length;
+
+for(var i = 0; i<i_max; i++) {
     
-    flip.addEventListener("click", function() {
+    var button = document.getElementById("flip"+i);
+    
 
-        if (document.getElementById("front").getAttribute("class") == "flipped") {
+        if (button != null) {
+            alert(button);
+            button.addEventListener("click", function() {  
+                var id_front = "front" + (i - 2);
+                alert(i);
+                var front = document.getElementById(id_front);
+                alert(front);
+            if (front.className == "visible") {
+                front.setAttribute("class", "flipped");
+                document.getElementById("back"+(i -2)).setAttribute("class", "visible");
+            } else {
+                document.getElementById("back"+(i -2)).setAttribute("class", "flipped");
+                document.getElementById("front"+(i -2)).setAttribute("class", "visible");
+            }
+        });
 
-            document.getElementById("front").setAttribute("class", "flipped");
-            document.getElementById("back").setAttribute("class", "visible");
+    }
 
-        } else {
-            document.getElementById("back").setAttribute("class", "flipped");
-            document.getElementById("front").setAttribute("class", "visible");
-        }
+    
+}
+
+
+
+
+    
         
-        
-        
-    });
-};
+    
+    
+    

@@ -3,11 +3,12 @@
     margin: 0 auto;
 }
 
-.flipped {
-    display: none;
-}
-
 .visible {
     margin: 0 auto;
     height: 250px;
 }
+
+.flipped {
+    display: none;
+}
+
