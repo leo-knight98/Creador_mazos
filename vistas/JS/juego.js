@@ -3,7 +3,7 @@ window.onload = function() {
     
     flip.addEventListener("click", function() {
 
-        if (document.getElementById("back").getAttribute("class") == "flipped") {
+        if (document.getElementById("front").getAttribute("class") == "flipped") {
 
             document.getElementById("front").setAttribute("class", "flipped");
             document.getElementById("back").setAttribute("class", "visible");

@@ -16,8 +16,8 @@
       <div class="card-header"><?php echo $carta['nombre'] ?></div>
       <div class="card-body">
         <?php if($carta['img2'] != NULL) { ?>
-          <div id="front" class="visible" style="text-align: center;"><img class="front" src="<?php echo $carta['img'] ?>"></div>
-          <div id="back" class="flipped" style="text-align: center;"><img class="front" src="<?php echo $carta['img2'] ?>"></div><br>
+          <div class="front" style="text-align: center;"><img id="front" class="visible" src="<?php echo $carta['img'] ?>"></div><br>
+          <div class="flipped" style="text-align: center;"><img id="back" class="flipped" src="<?php echo $carta['img2'] ?>"></div><br>
           <div style="text-align: center;"><button id="flip" style="margin: 5px auto;"><img src="vistas/img/swap.png" /></button></div>
         
         <?php } else if($carta['img2'] == NULL) { ?>
