@@ -19,7 +19,7 @@
         <?php if($listaCartas[$i]['img2'] != NULL) { ?>
           <div style="text-align: center;"><img id=<?php echo "front$i" ?> class="visible" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
           <div style="text-align: center;"><img id=<?php echo "back$i" ?> class="flipped" src="<?php echo $listaCartas[$i]['img2'] ?>"></div><br>
-          <div style="text-align: center;"><button id=<?php echo "flip$i" ?> style="margin: 5px auto;"><img src="vistas/img/swap.png" /></button></div>
+          <div style="text-align: center;"><button onclick="reply_click(this.id)" id=<?php echo "flip$i" ?> style="margin: 5px auto;"><img src="vistas/img/swap.png" /></button></div>
         
         <?php } else if($listaCartas[$i]['img2'] == NULL) { ?>
           <div style="text-align: center;"><img class="front" id="img" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
