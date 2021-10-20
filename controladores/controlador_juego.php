@@ -11,13 +11,13 @@ class Controlador {
             $orden = $_POST['orden'];
             $listaCartas = Juego::verCartasOrdenadas($orden);
             foreach($listaCartas as $carta) {
-                $carta['texto'] = Juego::cambia_imagenes($carta['texto']);
+                $carta['texto'] = str_replace("{B}", "<img src=\"vistas/img/black_mana.png\" />", $carta['texto']);
             }
 
         } else {
             $listaCartas = Juego::verCartas();
             foreach($listaCartas as $carta) {
-                $carta['texto'] = Juego::cambia_imagenes($carta['texto']);
+                $carta['texto'] = str_replace("{B}", '<img src="vistas/img/black_mana.png" />', $carta['texto']);
             }
             
         }
@@ -26,12 +26,9 @@ class Controlador {
 
     public function buscador() {
         if($_SERVER['REQUEST_METHOD'] === "POST") {
-
-            
             $parametro = $_POST['parametro'];
             $valor = "%".$_POST['valor']."%";
-            $cartas = Juego::buscar_parametro($parametro, $valor);
-            //var_dump($cartas);
+            $listaCartas = Juego::buscar_parametro($parametro, $valor);
         }
         include_once("vistas/juego/buscador.php");
     }

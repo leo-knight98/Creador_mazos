@@ -17,15 +17,16 @@
       <div class="card-body">
         
         <?php if($listaCartas[$i]['img2'] != NULL) { ?>
-          <div style="text-align: center;"><img id=<?php echo "front$i" ?> class="visible" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
-          <div style="text-align: center;"><img id=<?php echo "back$i" ?> class="flipped" src="<?php echo $listaCartas[$i]['img2'] ?>"></div><br>
+          <div id=<?php echo "front$i" ?> class="front visible" style="text-align: center;"><img class="front" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
+          <div id=<?php echo "back$i" ?> class="back flipped" style="text-align: center;"><img class="front" src="<?php echo $listaCartas[$i]['img2'] ?>"></div><br>
           <div style="text-align: center;"><button onclick="reply_click(this.id)" id=<?php echo "flip$i" ?> style="margin: 5px auto;"><img src="vistas/img/swap.png" /></button></div>
-        
         <?php } else if($listaCartas[$i]['img2'] == NULL) { ?>
           <div style="text-align: center;"><img class="front" id="img" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
+          
         <?php } ?>
-        
         <p class="card-text" style="text-align: justify;"><?php echo $listaCartas[$i]['texto'] ?></p>
+        
+        
         <ul>
             <li>Coste: <?php 
               $costes = explode(" ", $listaCartas[$i]['coste']);
