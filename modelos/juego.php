@@ -69,16 +69,12 @@ class Juego {
     }
 
     public static function ver_cartas_mazo($id_mazo) {
-        echo "aaaaaaahh";
         $connBD = BD::crearInstancia();
-        
-        $stmt = $connBD->prepare("SELECT * FROM mazos_cartas WHERE id_mazo = :id_mazo");
-        
+        $stmt = $connBD->prepare("SELECT * FROM mazos_cartas WHERE mazos_cartas.id_mazo = :id_mazo");
         $stmt->bindParam(':id_mazo', $id_mazo);
-        
         $stmt->execute();
-        
         $cartas_mazo = $stmt->fetchAll();
+        return $cartas_mazo;
     }
 
     public static function cambia_imagenes($texto) {

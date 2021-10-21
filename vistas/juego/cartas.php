@@ -12,22 +12,24 @@
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <?php for($i = 0; $i<count($listaCartas); $i++) { ?>
     <div class="col">
-    <div class="card h-100" style="max-height: 670px; overflow: scroll;">
-      <div class="card-header"><?php echo $listaCartas[$i]['nombre'] ?></div>
-      <div class="card-body">
+    <div class="card h-100" style="min-height: 600px; max-height: 650px; overflow: scroll;">
+      
         
-        <?php if($listaCartas[$i]['img2'] != NULL) { ?>
-          <div id=<?php echo "front$i" ?> class="front visible" style="text-align: center;"><img class="front" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
-          <div id=<?php echo "back$i" ?> class="back flipped" style="text-align: center;"><img class="front" src="<?php echo $listaCartas[$i]['img2'] ?>"></div><br>
-          <div style="text-align: center;"><button onclick="reply_click(this.id)" id=<?php echo "flip$i" ?> style="margin: 5px auto;"><img src="vistas/img/swap.png" /></button></div>
-        <?php } else if($listaCartas[$i]['img2'] == NULL) { ?>
-          <div style="text-align: center;"><img class="front" id="img" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
+        <?php if($listaCartas[$i]['img2'] != NULL) {
+          $nombres = explode("//", $listaCartas[$i]['nombre']);
+          ?>
           
-        <?php } ?>
-        <p class="card-text" style="text-align: justify;"><?php echo $listaCartas[$i]['texto'] ?></p>
-        
-        
-        <ul>
+          
+          <?php $textos = explode("//", $listaCartas[$i]['texto']); ?>
+          <div id=<?php echo "front$i" ?> class="visible">
+          <div class="card-header"><?php echo $nombres[0] ?></div>
+          <div class="card-body">
+            <div class="front" style="text-align: center;"><img class="front" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
+            <div style="text-align: center;">
+              <button onclick="reply_click(this.id)" id=<?php echo "flip$i" ?> style="margin: 5px auto;"><img src="vistas/img/swap.png" /></button>
+            </div>
+            <p id=<?php echo 'text-front'.$i ?> class="card-text visible-text"><?php echo $textos[0] ?></p>
+            <ul>
             <li>Coste: <?php 
               $costes = explode(" ", $listaCartas[$i]['coste']);
               foreach($costes as $coste) {
@@ -46,6 +48,86 @@
                 }
               }
             
+            ?></li>
+            <li>Color:
+              <?php if(strpos($listaCartas[$i]['color'], "//") == FALSE) {
+                echo $listaCartas[$i]['color'];
+              } else {
+                $colores = explode("//", $listaCartas[$i]['color']);
+                echo $colores[0];
+              } ?>
+            </li>
+          </ul>
+          </div>
+          <div id=<?php echo "back$i" ?> class="flipped">
+            <div class="back" style="text-align: center;"><img class="back visible" src="<?php echo $listaCartas[$i]['img2'] ?>"></div>
+            <div style="text-align: center;">
+              <button onclick="reply_click(this.id)" id=<?php echo "flip$i" ?> style="margin: 5px auto;"><img src="vistas/img/swap.png" /></button>
+            </div>
+            <p id<?php echo 'text-back'.$i ?> class="card-text"><?php echo $textos[1] ?></p>
+
+            <?php if($listaCartas[$i]['coste2'] != NULL) { ?>
+              <ul>
+              <li>Coste: <?php 
+                $costes = explode(" ", $listaCartas[$i]['coste2']);
+                foreach($costes as $coste) {
+                  if($coste == "{B}") {
+                    echo "<img src=\"vistas/img/black_mana.png\" />";
+                  } else if($coste === "{U}") {
+                    echo "<img src=\"vistas/img/blue_mana.png\" />";
+                  } else if($coste === "{G}") {
+                    echo "<img src=\"vistas/img/green_mana.png\" />";
+                  } else if($coste === "{R}") {
+                    echo "<img src=\"vistas/img/red_mana.png\" />";
+                  } else if($coste === "{W}") {
+                    echo "<img src=\"vistas/img/white_mana.png\" />";
+                  } else {
+                    echo $coste;
+                  }
+                }
+              ?>
+              
+            </li>
+            <?php } ?>
+            <li>Color:
+            <?php if(strpos($listaCartas[$i]['color'], "//") == FALSE) {
+                echo $listaCartas[$i]['color'];
+              } else {
+                $colores = explode("//", $listaCartas[$i]['color']);
+                echo $colores[1];
+              } ?></li>
+              </ul>
+          </div>
+        
+          
+          
+          
+          
+
+        <?php } else if($listaCartas[$i]['img2'] == NULL) { ?>
+          <div class="card-header"><?php echo $listaCartas[$i]['nombre'] ?></div>
+      <div class="card-body">
+
+          <div style="text-align: center;"><img class="front" id="img" src="<?php echo $listaCartas[$i]['img'] ?>"></div>
+          <p class="card-text" style="text-align: justify;"><?php echo $listaCartas[$i]['texto'] ?></p>
+          <ul>
+            <li>Coste: <?php 
+              $costes = explode(" ", $listaCartas[$i]['coste']);
+              foreach($costes as $coste) {
+                if($coste == "{B}") {
+                  echo "<img src=\"vistas/img/black_mana.png\" />";
+                } else if($coste === "{U}") {
+                  echo "<img src=\"vistas/img/blue_mana.png\" />";
+                } else if($coste === "{G}") {
+                  echo "<img src=\"vistas/img/green_mana.png\" />";
+                } else if($coste === "{R}") {
+                  echo "<img src=\"vistas/img/red_mana.png\" />";
+                } else if($coste === "{W}") {
+                  echo "<img src=\"vistas/img/white_mana.png\" />";
+                } else {
+                  echo $coste;
+                }
+              }
             
             ?></li>
             <li>Color: <?php echo $listaCartas[$i]['color'] ?></li>
@@ -58,6 +140,9 @@
         <?php } else if ($listaCartas[$i]['lealtad'] != NULL) { ?>
             <p style="text-align: right;"><?php echo $listaCartas[$i]['lealtad'] ?></p>
         <?php } ?>
+          
+        <?php } ?>
+        
       </div>
     </div>
   </div>

@@ -12,3 +12,8 @@
     display: none;
     
 }
+
+.visible-text {
+    margin: 0 auto;
+    text-align: justify;
+}

@@ -21,7 +21,7 @@ class Controlador {
             }
             
         }
-        include_once("vistas/juego/cartas.php");    
+        include_once("vistas/juego/cartas2.php");    
     }
 
     public function buscador() {
