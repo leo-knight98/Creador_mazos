@@ -1,6 +1,5 @@
 <div class="container">
   <h4 class="card-title">Lista de cartas</h4>
-
     <p>Ordenar por:</p>
     <form method="post">
         <input type="radio" name="orden" id="nombre" value="nombre"><label for="nombre">Nombre</label>
