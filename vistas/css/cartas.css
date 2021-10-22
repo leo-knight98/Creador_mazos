@@ -1,19 +1,33 @@
-.front {
-    height: 250px;
-    margin: 0 auto;
+.card {
+    height: 600px;
+    overflow: scroll;
+    
 }
+
+.img-card {
+    text-align: center;
+    display: block;
+}
+
+.img-card img {
+    height: 270px;
+}
+
 
 .visible {
     margin: 0 auto;
-    height: 250px;
 }
 
 .flipped {
     display: none;
-    
 }
 
-.visible-text {
+.text {
     margin: 0 auto;
     text-align: justify;
+}
+
+.stats {
+    width: 100%;
+    text-align: right;
 }

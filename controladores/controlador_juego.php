@@ -11,17 +11,17 @@ class Controlador {
             $orden = $_POST['orden'];
             $listaCartas = Juego::verCartasOrdenadas($orden);
             foreach($listaCartas as $carta) {
-                $carta['texto'] = str_replace("{B}", "<img src=\"vistas/img/black_mana.png\" />", $carta['texto']);
+                $carta['coste'] = str_replace("{B}", "<img src=\"vistas/img/black_mana.png\" />", $carta['coste']);
             }
 
         } else {
             $listaCartas = Juego::verCartas();
             foreach($listaCartas as $carta) {
-                $carta['texto'] = str_replace("{B}", '<img src="vistas/img/black_mana.png" />', $carta['texto']);
+                $carta['coste'] = str_replace("{B}", '<img src="vistas/img/black_mana.png" />', $carta['coste']);
             }
             
         }
-        include_once("vistas/juego/cartas2.php");    
+        include_once("vistas/juego/cartas.php");    
     }
 
     public function buscador() {

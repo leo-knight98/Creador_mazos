@@ -23,14 +23,12 @@ function reply_click(clicked_id) {
             
             var img = document.getElementById("front"+nombres[i]).getAttribute("class");
             if(img == "visible") {
-                document.getElementById("front"+nombres[i]).setAttribute("class", "card h-100 flipped");
-                document.getElementById("back"+nombres[i]).setAttribute("class", "card h-100 visible");
+                document.getElementById("front"+nombres[i]).setAttribute("class", "flipped");
+                document.getElementById("back"+nombres[i]).setAttribute("class", "visible");
                 
-                
-
             } else {
-                document.getElementById("back"+nombres[i]).setAttribute("class", "card h-100 flipped");
-                document.getElementById("front"+nombres[i]).setAttribute("class", "card h-100 visible");
+                document.getElementById("back"+nombres[i]).setAttribute("class", "flipped");
+                document.getElementById("front"+nombres[i]).setAttribute("class", "visible");
             }
             
         }
