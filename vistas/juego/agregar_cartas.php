@@ -90,16 +90,16 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <?php foreach($cartas_mazos as $carta) { ?>
+                                <?php for($i = 0; $i < count($lista); $i++) { ?>
                                     <tr>
+                                        <td><?php echo $lista[$i]['nombre'] ?></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td><?php echo $lista[$i]['cantidad'] ?></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

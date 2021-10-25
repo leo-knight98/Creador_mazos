@@ -1,12 +1,14 @@
 <div class="container">
-  <h4 class="card-title">Lista de cartas</h4>
-    <p>Ordenar por:</p>
-    <form method="post">
-        <input type="radio" name="orden" id="nombre" value="nombre"><label for="nombre">Nombre</label>
-        <input type="radio" name="orden" id="tipo" value="tipo"><label for="tipo">Tipo</label>
-        <input type="radio" name="orden" id="color" value="color"><label for="color">Color</label>
-        <input type="submit" class="btn btn-success" value="Enviar">
-    </form><br>
+    <h4 class="card-title">Lista de cartas</h4>  
+    <div class="formdiv">
+        <p class="form-label">Ordenar por:</p>
+        <form method="post">
+            <input type="radio" name="orden" id="nombre" value="nombre"><label for="nombre">Nombre</label>
+            <input type="radio" name="orden" id="tipo" value="tipo"><label for="tipo">Tipo</label>
+            <input type="radio" name="orden" id="color" value="color"><label for="color">Color</label>
+            <input type="submit" class="btn btn-success" value="Enviar">
+        </form>
+    </div><br>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php for ($i = 0; $i < $listaCartas[$i]; $i++) {
             if(strpos($listaCartas[$i]['nombre'], "//") != false) {
@@ -24,12 +26,37 @@
                 $img = $listaCartas[$i]['img'];
             }
 
-            if(strpos($listaCartas[$i]['texto'], "//") != false) {
-                $textos = explode("//", $listaCartas[$i]['texto']);
+            $textosporsustituir = explode(" ", $listaCartas[$i]['texto']);
+                $texto = "";
+                foreach($textosporsustituir as $palabra) {
+                    switch ($palabra) {
+                        case("{W}"):
+                            $texto .= str_replace("{W}", '<img src="vistas/img/white_mana.png" />', $palabra);
+                            break;
+                        case("{B}"):
+                            $texto .= str_replace("{B}", '<img src="vistas/img/black_mana.png" />', $palabra);
+                            break;
+                        case("{G}"):
+                            $texto .= str_replace("{G}", '<img src="vistas/img/green_mana.png" />', $palabra);
+                            break;
+                        case("{R}"):
+                            $texto .= str_replace("{R}", '<img src="vistas/img/red_mana.png" />', $palabra);
+                            break;
+                        case("{U}"):
+                            $texto .= str_replace("{U}", '<img src="vistas/img/blue_mana.png" />', $palabra);
+                            break;
+                        case("{T}"):
+                            $texto .= str_replace("{T}", '<img src="vistas/img/tap.png" />', $palabra);
+                            break;
+                        default:
+                            $texto .= $palabra." ";
+                            break;
+                    }
+                }
+            if (strpos($texto, "//") != false) {
+                $textos = explode("//", $texto);
                 $textoFront = $textos[0];
                 $textoBack = $textos[1];
-            } else {
-                $texto = $listaCartas[$i]['texto'];
             }
 
             $costes = explode(" ", $listaCartas[$i]['coste']);
@@ -89,7 +116,7 @@
                 <!-- Front -->
                 <div id="<?php echo 'front'.$i ?>" class="col visible">
                     <div class="card h-100">
-                        <div class="card-header">
+                        <div class="card-header" id=<?php echo "header$i" ?> >
                             <?php echo $nombreFront ?>
                         </div>
                         <div class="card-body">
@@ -104,7 +131,7 @@
                                         echo "Coste: $coste";
                                     } ?>
                                 </li>
-                                <li>
+                                <li id=<?php echo "color$i" ?>>
                                     <?php if(strpos($listaCartas[$i]['color'], "//") != false) {
                                         echo "Color: $colores[0]";
                                     } else {
@@ -149,7 +176,7 @@
                                 <?php if(strpos($coste, "//") != false) {
                                     echo "<li>Coste: $dos_costes[1]</li>";
                                 } ?>
-                                <li>
+                                <li id=<?php echo "color$i" ?>>
                                     <?php if(strpos($listaCartas[$i]['color'], "//") != false) {
                                         echo "Color: $colores[1]";
                                     } else {
@@ -190,7 +217,7 @@
                             <p class="text"><?php echo $texto ?></p>
                             <ul>
                                 <li><?php echo "Coste: $coste" ?></li>
-                                <li><?php echo "Color: $color" ?></li>
+                                <li id=<?php echo "color$i" ?>><?php echo "Color: $color" ?></li>
                                 <li>Tipo: <?php echo $tipo ?></li>
                                 <li>Expansión: <?php echo $expansion ?></li>
                                 <li>Rareza: <?php echo $rareza ?></li>

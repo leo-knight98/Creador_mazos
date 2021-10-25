@@ -70,16 +70,14 @@ class Juego {
 
     public static function ver_cartas_mazo($id_mazo) {
         $connBD = BD::crearInstancia();
-        $stmt = $connBD->prepare("SELECT * FROM mazos_cartas WHERE mazos_cartas.id_mazo = :id_mazo");
+        $stmt = $connBD->prepare("SELECT mazos_cartas.id_mazo, mazos_cartas.id_carta, mazos_cartas.cantidad as cantidad, cartas.nombre as nombre FROM mazos_cartas 
+                                INNER JOIN cartas ON mazos_cartas.id_carta = cartas.id WHERE mazos_cartas.id_mazo = :id_mazo");
         $stmt->bindParam(':id_mazo', $id_mazo);
         $stmt->execute();
-        $cartas_mazo = $stmt->fetchAll();
-        return $cartas_mazo;
+        $lista = $stmt->fetchAll();
+        return $lista;
     }
 
-    public static function cambia_imagenes($texto) {
-        $texto = str_ireplace("{B}", "<img src=\"vistas/img/black_mana.png\" />", $texto);
-        return $texto;
-    }
+
 }
 ?>

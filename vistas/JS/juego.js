@@ -5,19 +5,15 @@ const nombres = []
 
 
 for(var i = 0; i<i_max; i++) {
-    
     var button = document.getElementById("flip"+i);
-        if (button != null) {
-            ids.push("flip"+i);
-            nombres.push(i);
-        }
+    if (button != null) {
+        ids.push("flip"+i);
+        nombres.push(i);
     }
-
+}
     
-      
 function reply_click(clicked_id) {
 
-    
     for (var i = 0; i < ids.length; i++) {
         if(clicked_id == ids[i]) {
             
@@ -29,8 +25,7 @@ function reply_click(clicked_id) {
             } else {
                 document.getElementById("back"+nombres[i]).setAttribute("class", "flipped");
                 document.getElementById("front"+nombres[i]).setAttribute("class", "visible");
-            }
-            
+            }   
         }
     }
 }

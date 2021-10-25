@@ -1,0 +1,19 @@
+body {
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
+}
+
+nav {
+    background-color: black;
+    color: beige;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: beige;
+}
+
+div.banner {
+    width: 100vw;
+    text-align: center;
+}
+

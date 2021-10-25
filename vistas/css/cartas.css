@@ -1,12 +1,27 @@
 .card {
     height: 600px;
     overflow: scroll;
-    
+}
+
+form, .card-title, .form-label {
+    color: white;
+}
+
+.card-title {
+    text-align: center;
 }
 
 .img-card {
     text-align: center;
     display: block;
+}
+
+.formdiv {
+    margin: 10px auto;
+    border: 1px solid white;
+    width: max-content;
+    padding: 15px;
+    border-radius: 15px;
 }
 
 .img-card img {
