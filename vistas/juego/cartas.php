@@ -1,8 +1,8 @@
 <div class="container">
     <h4 class="card-title">Lista de cartas</h4>  
     <div class="formdiv">
-        <p class="form-label">Ordenar por:</p>
-        <form method="post">
+        <p class="form-p">Ordenar por:</p>
+        <form method="post" class="form-card">
             <input type="radio" name="orden" id="nombre" value="nombre"><label for="nombre">Nombre</label>
             <input type="radio" name="orden" id="tipo" value="tipo"><label for="tipo">Tipo</label>
             <input type="radio" name="orden" id="color" value="color"><label for="color">Color</label>
@@ -92,6 +92,9 @@
             if(strpos($listaCartas[$i]['color'], "//") != false) {
                 $colores = explode("//", $listaCartas[$i]['color']);
             } else {
+                if ($listaCartas[$i]['color2'] != null) {
+                    $color = $listaCartas[$i]['color'].", ".$listaCartas[$i]['color2'];
+                }
                 $color = $listaCartas[$i]['color'];
             }
             
@@ -131,7 +134,7 @@
                                         echo "Coste: $coste";
                                     } ?>
                                 </li>
-                                <li id=<?php echo "color$i" ?>>
+                                <li id=<?php echo 'color'.$i ?>>
                                     <?php if(strpos($listaCartas[$i]['color'], "//") != false) {
                                         echo "Color: $colores[0]";
                                     } else {
@@ -176,7 +179,7 @@
                                 <?php if(strpos($coste, "//") != false) {
                                     echo "<li>Coste: $dos_costes[1]</li>";
                                 } ?>
-                                <li id=<?php echo "color$i" ?>>
+                                <li id=<?php echo 'color'.$i ?>>
                                     <?php if(strpos($listaCartas[$i]['color'], "//") != false) {
                                         echo "Color: $colores[1]";
                                     } else {
@@ -209,7 +212,7 @@
                 <!-- una cara -->
                 <div class="col">
                     <div class="card h-100">
-                        <div class="card-header">
+                        <div class="card-header <?php echo $classColor ?>">
                             <?php echo $nombre ?>
                         </div>
                         <div class="card-body">

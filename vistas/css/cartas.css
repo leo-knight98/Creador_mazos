@@ -1,9 +1,9 @@
-.card {
+.h-100 {
     height: 600px;
     overflow: scroll;
 }
 
-form, .card-title, .form-label {
+.form-card, .card-title, .form-p {
     color: white;
 }
 
@@ -27,7 +27,6 @@ form, .card-title, .form-label {
 .img-card img {
     height: 270px;
 }
-
 
 .visible {
     margin: 0 auto;

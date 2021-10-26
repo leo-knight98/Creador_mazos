@@ -11,16 +11,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="vistas/css/cartas.css" />
     <link rel="stylesheet" href="vistas/css/general.css" />
+    <link rel="stylesheet" href="vistas/css/sets.css" />
   </head>
   <body>
     <header>
       <nav class="nav justify-content-center|justify-content-end">
         <a class="nav-link active" href="?controlador=juego&accion=cartas">Catálogo de cartas</a>
         <a class="nav-link active" href="?controlador=juego&accion=buscador">Buscador</a>
-
+        <a class="nav-link" href="?controlador=juego&accion=lista_sets">Lista de sets</a>
         <?php if ($_SESSION['id'] != null) {?>
-          <a class="nav-link" href="?controlador=juego&accion=mis_mazos">Mis mazos</a>
-          <a class="nav-link" href="?controlador=juego&accion=crear_mazo">Nuevo mazo</a>
+          
           <a class="nav-link" href="?controlador=usuarios&accion=logout">Logout</a>
         <?php } else {?>
           <a class="nav-link" href="?controlador=usuarios&accion=login">Login</a>
