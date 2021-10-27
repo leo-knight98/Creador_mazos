@@ -39,7 +39,11 @@ class Controlador {
     }
 
 
-
+    public function cartas_set() {
+        $id_set = $_GET['id'];
+        $listaCartas = Juego::carta_set($id_set);
+        include_once("vistas/juego/cartas_set.php");
+    }
     
 }
 

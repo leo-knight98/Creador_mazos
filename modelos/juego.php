@@ -41,5 +41,15 @@ class Juego {
         return $listaSets;
     }
 
+    public static function carta_set($id_set) {
+        $connBD = BD::crearInstancia();
+        $stmt = $connBD->prepare("SELECT * FROM cartas WHERE id = (SELECT id_carta FROM sets_cartas WHERE id_set = :id_set)");
+        $stmt->bindParam(':id_set', $id_set);
+        $stmt->execute();
+        $lista_cartas = $stmt->fetchAll();
+        var_dump($lista_cartas);
+        return $lista_cartas;
+    }
+
 }
 ?>

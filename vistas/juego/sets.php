@@ -3,7 +3,7 @@
         Sets existentes
     </div>
     <div class="card-body">
-        <table class="table-bordered">
+        <table class="table-bordered tabla-sets">
             <thead>
                 <tr>
                     <th>Nombre</th>
@@ -16,7 +16,7 @@
                 <?php foreach($listaSets as $set) { ?>
                     <tr>
                         <td style="width: 250px;"><?php echo $set['nombre']; ?></td>
-                        <td><img src="<?php echo $set['simbolo'] ?>" style="width: 40px;"></td>
+                        <td><a href="?controlador=juego&accion=cartas_set&id=<?php echo $set['id'] ?>"><img src="<?php echo $set['simbolo'] ?>" style="width: 40px;"></a></td>
                         <td style="width: 175px;"><?php 
                             $fecha = explode(" - ", $set['fecha_lanzamiento']);
 
